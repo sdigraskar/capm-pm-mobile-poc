@@ -1,0 +1,36 @@
+{
+  "name": "asset-management-cap",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.15.9",
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite"
+        },
+        "[production]": {
+          "kind": "hana",
+          "vcap": {
+            "name": "AssetManagement-HDI"
+          }
+        }
+      },
+      "auth": {
+        "kind": "dummy"
+      }
+    } 
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true
+}

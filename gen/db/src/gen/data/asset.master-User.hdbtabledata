@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_USER",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-User.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "UID",
+          "USERNAME",
+          "FIRSTNAME",
+          "LASTNAME",
+          "PASSWORD",
+          "JOB_FUNCTION",
+          "MAIL",
+          "TELEPHONE",
+          "LANGUAGE",
+          "GROUPS",
+          "ARTICLE",
+          "PLANT",
+          "WORK_SHIFT",
+          "GROUP_FUNCTION",
+          "LOG_DATE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "UID": "UID",
+        "USERNAME": "USERNAME",
+        "FIRSTNAME": "FIRSTNAME",
+        "LASTNAME": "LASTNAME",
+        "PASSWORD": "PASSWORD",
+        "JOB_FUNCTION": "JOB_FUNCTION",
+        "MAIL": "MAIL",
+        "TELEPHONE": "TELEPHONE",
+        "LANGUAGE": "LANGUAGE",
+        "GROUPS": "GROUPS",
+        "ARTICLE": "ARTICLE",
+        "PLANT": "PLANT",
+        "WORK_SHIFT": "WORK_SHIFT",
+        "GROUP_FUNCTION": "GROUP_FUNCTION",
+        "LOG_DATE": "LOG_DATE"
+      }
+    }
+  ]
+}

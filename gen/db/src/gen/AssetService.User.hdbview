@@ -1,0 +1,17 @@
+VIEW AssetService_User AS SELECT
+  User_0.UID,
+  User_0.USERNAME,
+  User_0.FIRSTNAME,
+  User_0.LASTNAME,
+  User_0.PASSWORD,
+  User_0.JOB_FUNCTION,
+  User_0.MAIL,
+  User_0.TELEPHONE,
+  User_0."LANGUAGE",
+  User_0.GROUPS,
+  User_0.ARTICLE,
+  User_0.PLANT,
+  User_0.WORK_SHIFT,
+  User_0.GROUP_FUNCTION,
+  User_0.LOG_DATE
+FROM asset_master_User AS User_0
