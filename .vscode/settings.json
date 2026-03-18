@@ -4,7 +4,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "AssestDB",
-            "database": "${workspaceFolder:asset-management-cap}/assestdb"
+            "database": "${workspaceFolder:asset-management-cap}/db.sqlite"
         }
     ]
 }

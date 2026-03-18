@@ -1,0 +1,33 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_PICKLIST_LOCATION",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-PICKLIST_LOCATION.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "SWERK",
+          "TPLNR",
+          "LANGU",
+          "INGRP",
+          "PLTXT"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "SWERK": "SWERK",
+        "TPLNR": "TPLNR",
+        "LANGU": "LANGU",
+        "INGRP": "INGRP",
+        "PLTXT": "PLTXT"
+      }
+    }
+  ]
+}

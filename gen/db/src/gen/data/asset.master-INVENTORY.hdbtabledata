@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_INVENTORY",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-INVENTORY.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "IBLNR",
+          "GJAHR",
+          "WERKS",
+          "LGORT",
+          "STATUS",
+          "CREA_DATE",
+          "CREA_USER",
+          "CREA_USER_TEXT",
+          "MOD_USER",
+          "MOD_USER_TEXT"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "IBLNR": "IBLNR",
+        "GJAHR": "GJAHR",
+        "WERKS": "WERKS",
+        "LGORT": "LGORT",
+        "STATUS": "STATUS",
+        "CREA_DATE": "CREA_DATE",
+        "CREA_USER": "CREA_USER",
+        "CREA_USER_TEXT": "CREA_USER_TEXT",
+        "MOD_USER": "MOD_USER",
+        "MOD_USER_TEXT": "MOD_USER_TEXT"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_PLANTS_MANAGEMENT",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-PLANTS_MANAGEMENT.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "PLANT",
+          "PLANT_NAME",
+          "NOTIFICATION_MODEL",
+          "RESERVATIONS",
+          "SMWHAPPS",
+          "TMWHAPPS",
+          "MANUALDATE",
+          "TPMYELLOWCARD",
+          "TPMAPP",
+          "PDIAS",
+          "PDIASORDER",
+          "WAREHOUSEQUANTITY"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "PLANT": "PLANT",
+        "PLANT_NAME": "PLANT_NAME",
+        "NOTIFICATION_MODEL": "NOTIFICATION_MODEL",
+        "RESERVATIONS": "RESERVATIONS",
+        "SMWHAPPS": "SMWHAPPS",
+        "TMWHAPPS": "TMWHAPPS",
+        "MANUALDATE": "MANUALDATE",
+        "TPMYELLOWCARD": "TPMYELLOWCARD",
+        "TPMAPP": "TPMAPP",
+        "PDIAS": "PDIAS",
+        "PDIASORDER": "PDIASORDER",
+        "WAREHOUSEQUANTITY": "WAREHOUSEQUANTITY"
+      }
+    }
+  ]
+}

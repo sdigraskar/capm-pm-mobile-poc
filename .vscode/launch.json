@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "command": "cds watch",
+      "command": "cds watch --profile hybrid",
       "cwd": "${workspaceFolder}"
     }
   ]

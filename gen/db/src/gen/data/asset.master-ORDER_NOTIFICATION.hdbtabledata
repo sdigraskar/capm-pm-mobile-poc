@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_ORDER_NOTIFICATION",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-ORDER_NOTIFICATION.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "AUFNR",
+          "VORNR",
+          "ARBID",
+          "ARBID_DESC",
+          "START_DATE",
+          "END_DATE",
+          "WORK_SHIFT",
+          "NOTIF_TEXT",
+          "NOTIF_END",
+          "OP_DESCRIPTION"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "AUFNR": "AUFNR",
+        "VORNR": "VORNR",
+        "ARBID": "ARBID",
+        "ARBID_DESC": "ARBID_DESC",
+        "START_DATE": "START_DATE",
+        "END_DATE": "END_DATE",
+        "WORK_SHIFT": "WORK_SHIFT",
+        "NOTIF_TEXT": "NOTIF_TEXT",
+        "NOTIF_END": "NOTIF_END",
+        "OP_DESCRIPTION": "OP_DESCRIPTION"
+      }
+    }
+  ]
+}

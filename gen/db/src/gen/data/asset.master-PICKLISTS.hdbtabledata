@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_PICKLISTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-PICKLISTS.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "SWERK",
+          "PICKLIST_ID",
+          "LANGU",
+          "EXT_CODE",
+          "PICKLIST_TYPE",
+          "PICKLIST_NAME",
+          "INT_CODE",
+          "DESCRIPTION",
+          "ID_PICKLIST_PARENT",
+          "PARENT_CODE",
+          "CUSTOMER_FIELD",
+          "OPTION_ACTIVE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "SWERK": "SWERK",
+        "PICKLIST_ID": "PICKLIST_ID",
+        "LANGU": "LANGU",
+        "EXT_CODE": "EXT_CODE",
+        "PICKLIST_TYPE": "PICKLIST_TYPE",
+        "PICKLIST_NAME": "PICKLIST_NAME",
+        "INT_CODE": "INT_CODE",
+        "DESCRIPTION": "DESCRIPTION",
+        "ID_PICKLIST_PARENT": "ID_PICKLIST_PARENT",
+        "PARENT_CODE": "PARENT_CODE",
+        "CUSTOMER_FIELD": "CUSTOMER_FIELD",
+        "OPTION_ACTIVE": "OPTION_ACTIVE"
+      }
+    }
+  ]
+}
