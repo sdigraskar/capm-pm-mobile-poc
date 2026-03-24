@@ -30,7 +30,8 @@
     } 
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds watch --profile hybrid",
+    "bind" : "cds bind --to asset-managemen-cap-db:AssetService"
   },
   "private": true
 }

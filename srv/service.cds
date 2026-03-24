@@ -1,6 +1,6 @@
 using { asset.master as asset } from '../db/schema';
 
-service AssetService @(path:'CatalogService') {
+service AssetService @(path:'Services') {
 
     entity User as projection on asset.User;   
 
