@@ -146,6 +146,7 @@ context master {
             LOG_DATE       : Timestamp;
     }
 
+
     entity USER_ARTICLE {
         key UID          : String(8);
         key PLANT        : String(100);
@@ -208,5 +209,94 @@ context master {
             WORK_CENTER_NAME : String(100);
     }
 
+    entity Location {
+        key SWERK : String(4); // Plant
+        key TPLNR : String(40); // Functional Location
+        key LANGU : String(2); // Language
+
+            PLTXT : String(40); // Description
+            INGRP : String(40); // Planner Group
+    }
+
+    entity Equipement {
+        key SWERK       : String(4); // Plant
+        key EQUNR       : String(18); // Equipment Number
+        key LANGU       : String(2); // Language
+
+            SHTXT       : String(40); // Description
+            TPLNR       : String(40); // Functional Location
+
+            TIDNR       : String(40);
+            TIDNRSELECT : String(40);
+            INGRP       : String(40);
+
+            // 🔗 Association to Location
+            location    : Association to Location
+                              on  location.SWERK = SWERK
+                              and location.TPLNR = TPLNR
+                              and location.LANGU = LANGU;
+    }
+
+    entity Material {
+        key SWERK         : String(4); // Plant
+        key LGORT         : String(4); // Storage Location
+        key MATNR         : String(18); // Material Number
+        key LANGU         : String(2); // Language
+
+            MAKTX         : String(40); // Description
+            LGPBE         : String(18); // Storage Bin
+            MATKL         : String(9); // Material Group
+
+            LABST         : Decimal(15, 3); // Stock
+            MEINS         : String(3); // Unit
+
+            SALK3         : Decimal(15, 3); // Value
+            WAERS         : String(5); // Currency
+
+            KZKRI         : String(1);
+            DISMM         : String(2);
+
+            MINBE         : Decimal(15, 3);
+            DISLS         : String(2);
+
+            BSTMI         : Decimal(16, 3);
+            BSTMA         : Decimal(16, 3);
+            BSTFE         : Decimal(16, 3);
+            MABST         : Decimal(16, 3);
+
+            ZMANUFACTURER : String(40);
+            ZMANUF_REF    : String(40);
+    }
+
+    entity Workcenter {
+        key SWERK : String(4); // Plant
+        key ARBPL : String(8); // Work Center
+
+            KTEXT : String(40); // Description
+            GROUP : String(20); //
+    }
+
+    entity Plants {
+        key PLANT              : String(100); // Plant ID
+
+            PLANT_NAME         : String(100);
+            NOTIFICATION_MODEL : String(100);
+            RESERVATIONS       : String(100);
+
+            SMWHAPPS           : String(100);
+            TMWHAPPS           : String(100);
+
+            TPMAPP             : String(1);
+
+            PDIAS              : Integer; // Edm.Int32 → Integer
+            PDIASORDER         : Integer;
+
+            WAREHOUSEQUANTITY  : String(1);
+            OFFLINE            : String(1);
+            MANUALDATE         : String(1);
+            TPMYELLOWCARD      : String(1);
+            BREAKDOWN          : String(1);
+            PREVENTIVES        : String(1);
+    }
 
 }

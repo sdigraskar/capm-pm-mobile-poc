@@ -1,0 +1,65 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_MATERIAL",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-Material.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "SWERK",
+          "LGORT",
+          "MATNR",
+          "LANGU",
+          "MAKTX",
+          "LGPBE",
+          "MATKL",
+          "LABST",
+          "MEINS",
+          "SALK3",
+          "WAERS",
+          "KZKRI",
+          "DISMM",
+          "MINBE",
+          "DISLS",
+          "BSTMI",
+          "BSTMA",
+          "BSTFE",
+          "MABST",
+          "ZMANUFACTURER",
+          "ZMANUF_REF"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "SWERK": "SWERK",
+        "LGORT": "LGORT",
+        "MATNR": "MATNR",
+        "LANGU": "LANGU",
+        "MAKTX": "MAKTX",
+        "LGPBE": "LGPBE",
+        "MATKL": "MATKL",
+        "LABST": "LABST",
+        "MEINS": "MEINS",
+        "SALK3": "SALK3",
+        "WAERS": "WAERS",
+        "KZKRI": "KZKRI",
+        "DISMM": "DISMM",
+        "MINBE": "MINBE",
+        "DISLS": "DISLS",
+        "BSTMI": "BSTMI",
+        "BSTMA": "BSTMA",
+        "BSTFE": "BSTFE",
+        "MABST": "MABST",
+        "ZMANUFACTURER": "ZMANUFACTURER",
+        "ZMANUF_REF": "ZMANUF_REF"
+      }
+    }
+  ]
+}

@@ -5,14 +5,35 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node-terminal",
+      "type": "node",
       "request": "launch",
-      "name": "CAP Debugging",
+      "name": "Launch Program",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "command": "cds watch --profile hybrid",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run asset-management-cap-1",
+      "request": "launch",
+      "type": "node",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "cds",
+      "args": [
+        "serve",
+        "--in-memory?"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "envFile": "${workspaceFolder}/.env1",
+      "env": {
+        "NODE_ENV": "development",
+        "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/asset-management-cap\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
+      }
     }
   ]
 }

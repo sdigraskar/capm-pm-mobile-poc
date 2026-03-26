@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_PLANTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-Plants.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "PLANT",
+          "PLANT_NAME",
+          "NOTIFICATION_MODEL",
+          "RESERVATIONS",
+          "SMWHAPPS",
+          "TMWHAPPS",
+          "TPMAPP",
+          "PDIAS",
+          "PDIASORDER",
+          "WAREHOUSEQUANTITY",
+          "OFFLINE",
+          "MANUALDATE",
+          "TPMYELLOWCARD",
+          "BREAKDOWN",
+          "PREVENTIVES"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "PLANT": "PLANT",
+        "PLANT_NAME": "PLANT_NAME",
+        "NOTIFICATION_MODEL": "NOTIFICATION_MODEL",
+        "RESERVATIONS": "RESERVATIONS",
+        "SMWHAPPS": "SMWHAPPS",
+        "TMWHAPPS": "TMWHAPPS",
+        "TPMAPP": "TPMAPP",
+        "PDIAS": "PDIAS",
+        "PDIASORDER": "PDIASORDER",
+        "WAREHOUSEQUANTITY": "WAREHOUSEQUANTITY",
+        "OFFLINE": "OFFLINE",
+        "MANUALDATE": "MANUALDATE",
+        "TPMYELLOWCARD": "TPMYELLOWCARD",
+        "BREAKDOWN": "BREAKDOWN",
+        "PREVENTIVES": "PREVENTIVES"
+      }
+    }
+  ]
+}

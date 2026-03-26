@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_WORKCENTER",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-Workcenter.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "SWERK",
+          "ARBPL",
+          "KTEXT",
+          "GROUP"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "SWERK": "SWERK",
+        "ARBPL": "ARBPL",
+        "KTEXT": "KTEXT",
+        "GROUP": "GROUP"
+      }
+    }
+  ]
+}
