@@ -3,5 +3,9 @@
   "src/gen/**/*.hdbindex",
   "src/gen/**/*.hdbconstraint",
   "src/gen/**/*_drafts.hdbtable",
-  "src/gen/**/*.hdbcalculationview"
+  "src/gen/**/*.hdbcalculationview",
+  "src/gen/asset.master.User.hdbtable",
+  "src/gen/data/asset.master-User.csv",
+  "src/gen/data/asset.master-User.hdbtabledata"
+
 ]

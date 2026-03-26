@@ -1,0 +1,7 @@
+VIEW AssetService_Location AS SELECT
+  Location_0.SWERK,
+  Location_0.TPLNR,
+  Location_0.LANGU,
+  Location_0.PLTXT,
+  Location_0.INGRP
+FROM asset_master_Location AS Location_0

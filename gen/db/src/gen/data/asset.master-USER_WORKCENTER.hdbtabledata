@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "ASSET_MASTER_USER_WORKCENTER",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "asset.master-USER_WORKCENTER.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "UID",
+          "PLANT",
+          "WORK_CENTER",
+          "WORK_CENTER_NAME"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "UID": "UID",
+        "PLANT": "PLANT",
+        "WORK_CENTER": "WORK_CENTER",
+        "WORK_CENTER_NAME": "WORK_CENTER_NAME"
+      }
+    }
+  ]
+}

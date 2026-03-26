@@ -15,7 +15,9 @@
     "requires": {
       "db": {
         "[development]": {
-          "kind": "sqlite"
+          "kind": "sqlite",
+          "credentials": 
+          {"url": "db.sqlite"}
         },
         "[production]": {
           "kind": "hana",

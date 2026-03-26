@@ -1,0 +1,48 @@
+namespace asset.commons;
+
+type LoginResponse {
+    login                    : Boolean;
+    userID                   : String;
+    name                     : String;
+    user                     : String;
+    email                    : String;
+    phone                    : String;
+    language                 : String;
+    firstname                : String;
+    lastname                 : String;
+    jobfunction              : String;
+    groupfunction            : String;
+    plant                    : String;
+    plantname                : String;
+    article                  : String;
+    workshift                : String;
+    location                 : array of String;
+    locationname             : array of String;
+    workspace                : array of String;
+    workspacename            : array of String;
+    workspacegroup           : String;
+    equipment                : array of String;
+    equipmentname            : array of String;
+    navclass                 : array of String;
+    navclassname             : array of String;
+    printer                  : array of String;
+    printername              : array of String;
+    plants                   : array of String;
+    plantsname               : array of String;
+    plantsModel              : String;
+    plantsReservation        : String;
+    articles                 : array of String;
+    articlesname             : array of String;
+    group                    : array of String;
+    groupname                : array of String;
+    logDate                  : Timestamp;
+    TPMVisible               : Boolean;
+    ManualDate               : Boolean;
+    TPMYellowCard            : Boolean;
+    BreakDown                : Boolean;
+    Preventives              : Boolean;
+    PDias                    : Integer;
+    PDiasOrder               : Integer;
+    WarehouseQuantityVisible : Boolean;
+    whpermits                : String;
+}

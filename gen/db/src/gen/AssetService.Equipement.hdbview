@@ -1,0 +1,10 @@
+VIEW AssetService_Equipement AS SELECT
+  Equipement_0.SWERK,
+  Equipement_0.EQUNR,
+  Equipement_0.LANGU,
+  Equipement_0.SHTXT,
+  Equipement_0.TPLNR,
+  Equipement_0.TIDNR,
+  Equipement_0.TIDNRSELECT,
+  Equipement_0.INGRP
+FROM asset_master_Equipement AS Equipement_0

@@ -1,0 +1,17 @@
+VIEW AssetService_Plants AS SELECT
+  Plants_0.PLANT,
+  Plants_0.PLANT_NAME,
+  Plants_0.NOTIFICATION_MODEL,
+  Plants_0.RESERVATIONS,
+  Plants_0.SMWHAPPS,
+  Plants_0.TMWHAPPS,
+  Plants_0.TPMAPP,
+  Plants_0.PDIAS,
+  Plants_0.PDIASORDER,
+  Plants_0.WAREHOUSEQUANTITY,
+  Plants_0.OFFLINE,
+  Plants_0.MANUALDATE,
+  Plants_0.TPMYELLOWCARD,
+  Plants_0.BREAKDOWN,
+  Plants_0.PREVENTIVES
+FROM asset_master_Plants AS Plants_0
