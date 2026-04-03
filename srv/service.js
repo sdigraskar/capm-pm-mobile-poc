@@ -3,7 +3,7 @@ const cds = require('@sap/cds');
 
 module.exports = (srv) => {
 
-  const { User, UserPlants } = srv.entities;
+  const { User} = srv.entities;
 
   srv.on('LoginOp', async (req) => {
 
@@ -29,63 +29,127 @@ module.exports = (srv) => {
 
     const userUID = user.UID;
 
-    // const { UserPlants } = srv.entities;
+    const { UserPlants } = srv.entities;
 
     // USER PLANT
-    const plants = await db.run(
+    const plant  = await db.run(
       SELECT.one.from(UserPlants).where({ UID: userUID })
 
     );
-    console.log(plants);
-    const userPlant = plants.length ? plants[0].PLANT : null;
 
-    let equipment = [], location = [], workspace = [], navclass = [],
-        printer = [], articles = [], group = [];
+    const userPlant = plant?.PLANT || null;
+    const userPlantname = plant?.PLANT_NAME || null; 
+      
 
-    const {UserEquipment} = srv.entities;    
+    let location = [], locationname = [];
+    let workspace = [], workspacename = [];
+    let equipment = [], equipmentname = [];
+    let navclass = [], navclassname = [];
+    let printer = [], printername = [];
+    let articles = [], articlesname = [];
+    let plants = [], plantsname = [];
+    let group = [], groupname = [];
 
-    if (userPlant) {
+    let workspacegroup = "";
+    let plantDetail = {};
 
-      equipment = await db.run(
+
+    const {UserEquipment,UserFunctionalLocation,
+            UserWorkcenter,UserClass,UserPrinter,
+          UserArticle,UserGroups,PlantsManagement,PicklistWorkcenter} = srv.entities;    
+
+    if (plant) {      
+
+      const resultEquipment = await db.run(
         SELECT.from(UserEquipment)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      location = await db.run(
-        SELECT.from('assets.USER_FUNCTIONAL_LOCATION')
+      const resultLocation = await db.run(
+        SELECT.from(UserFunctionalLocation)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      workspace = await db.run(
-        SELECT.from('assets.USER_WORKCENTER')
+      const resultWorkcenter = await db.run(
+        SELECT.from(UserWorkcenter)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      navclass = await db.run(
-        SELECT.from('assets.USER_CLASS')
+       
+      const resultClass = await db.run(
+        SELECT.from(UserClass)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      printer = await db.run(
-        SELECT.from('assets.USER_PRINTER')
+      const resultPrinter = await db.run(
+        SELECT.from(UserPrinter)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      articles = await db.run(
-        SELECT.from('assets.USER_ARTICLE')
+      const resultArticle = await db.run(
+        SELECT.from(UserArticle)
         .where({ UID: userUID, PLANT: userPlant })
       );
 
-      group = await db.run(
-        SELECT.from('assets.USER_GROUPS')
+      const resultGroup = await db.run(
+        SELECT.from(UserGroups)
         .where({ UID: userUID, PLANT: userPlant })
       );
+
+      const resultPlant = await db.run(
+        SELECT.from(UserPlants)
+          .where({ UID: user.UID, PLANT: userPlant })
+      );
+
+       plantDetail = await db.run(
+        SELECT.one.from(PlantsManagement)
+          .where({ PLANT: userPlant })
+      ) || {};
+
+      // const {PicklistWorkcenter} = srv.entities;
+      const WORK_CENTER = resultWorkcenter[0].WORK_CENTER;
+
+       if (resultWorkcenter.length) {
+        const picklist = await db.run(
+          SELECT.one.from(PicklistWorkcenter)
+            .where({
+              SWERK: String(userPlant),
+              ARBPL: String(WORK_CENTER)
+            })
+        );
+        workspacegroup = picklist?.GROUP || "";
+      }
+
+      location = resultLocation.map(x => x.FLOC);
+      locationname = resultLocation.map(x => x.FLOC_NAME);
+
+      workspace = resultWorkcenter.map(x => x.WORK_CENTER);
+      workspacename = resultWorkcenter.map(x => x.WORK_CENTER_NAME);
+
+      equipment = resultEquipment.map(x => x.EQUI);
+      equipmentname = resultEquipment.map(x => x.EQUI_NAME);
+
+      navclass = resultClass.map(x => x.CLASS);
+      navclassname = resultClass.map(x => x.CLASS_NAME);
+
+      printer = resultPrinter.map(x => x.PRINTER);
+      printername = resultPrinter.map(x => x.PRINTER_NAME);
+
+      articles = resultArticle.map(x => x.ARTICLE);
+      articlesname = resultArticle.map(x => x.ARTICLE_NAME);
+
+      group = resultGroup.map(x => x.GROUPS);
+      groupname = resultGroup.map(x => x.GROUPS_NAME);
+
+      plants = resultPlant.map(x => x.PLANT);
+      plantsname = resultPlant.map(x => x.PLANT_NAME);
+
     }
 
-    return {
+    let newuser = {
       login: true,
-      userID: userUID,
-      name: user.FIRSTNAME + " " + user.LASTNAME,
+      userID: user.UID,
+      name: `${user.FIRSTNAME} ${user.LASTNAME}`,
       user: user.USERNAME,
       email: user.MAIL,
       phone: user.TELEPHONE,
@@ -95,17 +159,58 @@ module.exports = (srv) => {
       jobfunction: user.JOB_FUNCTION,
       groupfunction: user.GROUP_FUNCTION,
       plant: userPlant,
+      plantname: userPlantname,
       article: user.ARTICLE,
       workshift: user.WORK_SHIFT,
-      equipment,
+
       location,
+      locationname,
       workspace,
+      workspacename,
+      workspacegroup,
+      equipment,
+      equipmentname,
       navclass,
+      navclassname,
       printer,
+      printername,
+      plants,
+      plantsname,
       articles,
+      articlesname,
       group,
-      logDate: user.LOG_DATE
+      groupname,
+
+      plantsModel: plantDetail.NOTIFICATION_MODEL || "",
+      plantsReservation: plantDetail.RESERVATIONS || "",
+
+      logDate: user.LOG_DATE,
+
+      TPMVisible: plantDetail.TPMAPP === 'X',
+      ManualDate: plantDetail.MANUALDATE === 'X',
+      TPMYellowCard: plantDetail.TPMYELLOWCARD === 'X',
+      BreakDown: plantDetail.BREAKDOWN === 'X',
+      Preventives: plantDetail.PREVENTIVES === 'X',
+
+      PDias: plantDetail.PDIAS || 15,
+      PDiasOrder: plantDetail.PDIASORDER || 15,
+      WarehouseQuantityVisible: plantDetail.WAREHOUSEQUANTITY === 'X'
     };
+
+    // 🔹 WH Permits
+    let whpermits = "";
+
+    if (newuser.jobfunction === "TM") {
+      whpermits = plantDetail.TMWHAPPS;
+    } else if (newuser.jobfunction === "SM") {
+      whpermits = plantDetail.SMWHAPPS;
+    } else if (newuser.jobfunction === "RA") {
+      whpermits = "MGSRICOR";
+    }
+
+    newuser.whpermits = whpermits;
+
+    return newuser;
 
   });
 

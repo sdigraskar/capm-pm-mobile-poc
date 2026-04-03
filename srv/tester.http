@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
  "USERNAME": "IB03427",
- "PASSWORD": "123459u"
+ "PASSWORD": "12345"
 }
 
 ###validate the data

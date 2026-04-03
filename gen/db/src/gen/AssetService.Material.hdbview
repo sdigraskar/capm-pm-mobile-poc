@@ -1,0 +1,23 @@
+VIEW AssetService_Material AS SELECT
+  Material_0.SWERK,
+  Material_0.LGORT,
+  Material_0.MATNR,
+  Material_0.LANGU,
+  Material_0.MAKTX,
+  Material_0.LGPBE,
+  Material_0.MATKL,
+  Material_0.LABST,
+  Material_0.MEINS,
+  Material_0.SALK3,
+  Material_0.WAERS,
+  Material_0.KZKRI,
+  Material_0.DISMM,
+  Material_0.MINBE,
+  Material_0.DISLS,
+  Material_0.BSTMI,
+  Material_0.BSTMA,
+  Material_0.BSTFE,
+  Material_0.MABST,
+  Material_0.ZMANUFACTURER,
+  Material_0.ZMANUF_REF
+FROM asset_master_Material AS Material_0

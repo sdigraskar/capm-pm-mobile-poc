@@ -1,0 +1,6 @@
+VIEW AssetService_Workcenter AS SELECT
+  Workcenter_0.SWERK,
+  Workcenter_0.ARBPL,
+  Workcenter_0.KTEXT,
+  Workcenter_0."GROUP"
+FROM asset_master_Workcenter AS Workcenter_0
